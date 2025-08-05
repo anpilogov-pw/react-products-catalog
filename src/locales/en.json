@@ -1,0 +1,14 @@
+{
+  "header": {
+    "title": "User Catalog"
+  },
+  "search": {
+    "placeholder": "Search users...",
+    "button": "Search"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "notFound": "Page not found"
+  }
+}
