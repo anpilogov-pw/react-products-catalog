@@ -1,5 +1,5 @@
 export { default as MainPage } from './MainPage'
 export { default as NotFoundPage } from './NotFoundPage'
-export { default as UsersPage } from './UsersPage'
-export { default as UserPage } from './UserPage'
+export { default as ProductsPage } from './ProductsPage'
+export { default as ProductPage } from './ProductPage'
 export { default as FavoritesPage } from './FavoritesPage'

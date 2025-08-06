@@ -15,7 +15,7 @@ function SearchForm({ searchText }: Props) {
 	const handleSearch = () => {
 		const trimmed = searchQuery.trim();
 		if (!trimmed) return;
-		navigate(RouterNames.USERS_SEARCH(encodeURIComponent(trimmed)));
+		navigate(RouterNames.PRODUCTS_SEARCH(encodeURIComponent(trimmed)));
 	};
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,8 +27,13 @@ function SearchForm({ searchText }: Props) {
 		handleSearch();
 	};
 
+	const resetSearch = () => {
+		setSearchQuery('');
+		navigate(RouterNames.PRODUCTS);
+	};
+
 	return (
-		<div className='bg-white p-6 rounded-lg shadow-sm border max-w-md mx-auto'>
+		<div className='bg-white p-6 rounded-lg shadow-sm border max-w-lg mx-auto'>
 			<div className='flex gap-2'>
 				<input
 					type='text'
@@ -44,6 +49,14 @@ function SearchForm({ searchText }: Props) {
 				>
 					{t("search.button")}
 				</button>
+				{searchQuery && (
+					<button
+						onClick={resetSearch}
+						className='px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600'
+					>
+						Сбросить
+					</button>
+				)}
 			</div>
 		</div>
 	);

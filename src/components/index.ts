@@ -1,1 +1,5 @@
 export { default as SearchForm } from './SearchForm'
+export { ProductCard } from './ProductCard'
+export { LoadingSpinner } from './LoadingSpinner'
+export { Pagination } from './Pagination'
+export { LazyImage } from './LazyImage'

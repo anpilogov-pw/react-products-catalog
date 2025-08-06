@@ -4,8 +4,8 @@ import {
 	FavoritesPage,
 	MainPage,
 	NotFoundPage,
-	UserPage,
-	UsersPage,
+	ProductPage,
+	ProductsPage,
 } from "@/pages";
 
 export const router = createBrowserRouter([
@@ -18,12 +18,12 @@ export const router = createBrowserRouter([
 				element: <MainPage />,
 			},
 			{
-				path: "users",
-				element: <UsersPage />,
+				path: "products",
+				element: <ProductsPage />,
 			},
 			{
-				path: "users/:id",
-				element: <UserPage />,
+				path: "products/:id",
+				element: <ProductPage />,
 			},
 			{
 				path: "favorites",
