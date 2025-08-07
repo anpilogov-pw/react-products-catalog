@@ -1,14 +1,31 @@
 {
   "header": {
-    "title": "Каталог пользователей"
+    "title": "Каталог товаров"
   },
   "search": {
-    "placeholder": "Поиск пользователей...",
-    "button": "Искать"
+    "placeholder": "Поиск по товарам...",
+    "button": "Искать",
+    "reset": "Сбросить",
+    "resultsFor": "Результаты поиска по запросу:",
+    "noResults": "Нет результатов"
+  },
+  "products": {
+    "title": "Товары"
+  },
+  "product": {
+    "brand": "Бренд:",
+    "category": "Категория:",
+    "stock": "На складе:"
+  },
+  "navigation": {
+    "products": "Товары",
+    "favorites": "Избранные"
   },
   "common": {
     "loading": "Загрузка...",
     "error": "Ошибка",
-    "notFound": "Страница не найдена"
+    "notFound": "Страница не найдена",
+    "backToHome": "На главную",
+    "noImage": "Нет изображения"
   }
 }

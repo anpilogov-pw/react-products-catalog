@@ -1,14 +1,35 @@
 {
   "header": {
-    "title": "User Catalog"
+    "title": "Products Catalog"
   },
   "search": {
-    "placeholder": "Search users...",
-    "button": "Search"
+    "placeholder": "Search product...",
+    "button": "Search",
+    "reset": "Reset",
+    "resultsFor": "Search results for:",
+    "noResults": "No results"
+  },
+  "products": {
+    "title": "Products"
+  },
+  "product": {
+    "brand": "Brand:",
+    "category": "Category:",
+    "stock": "Stock:"
+  },
+  "navigation": {
+    "products": "Products",
+    "favorites": "Favorites"
+  },
+  "navigation": {
+    "products": "Products",
+    "favorites": "Favorites"
   },
   "common": {
     "loading": "Loading...",
     "error": "Error",
-    "notFound": "Page not found"
+    "notFound": "Page not found",
+    "backToHome": "Back to Home",
+    "noImage": "No image"
   }
 }
