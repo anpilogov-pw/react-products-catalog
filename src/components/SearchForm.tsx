@@ -3,12 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { RouterNames } from "@/constants";
 
-type Props = {
-	searchText?: string;
-};
-
-function SearchForm({ searchText }: Props) {
-	const [searchQuery, setSearchQuery] = useState<string>(searchText || "");
+function SearchForm() {
+	const [searchQuery, setSearchQuery] = useState<string>('');
 	const navigate = useNavigate();
 	const { t } = useTranslation();
 
@@ -16,6 +12,7 @@ function SearchForm({ searchText }: Props) {
 		const trimmed = searchQuery.trim();
 		if (!trimmed) return;
 		navigate(RouterNames.PRODUCTS_SEARCH(encodeURIComponent(trimmed)));
+		setSearchQuery('');
 	};
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,31 +30,29 @@ function SearchForm({ searchText }: Props) {
 	};
 
 	return (
-		<div className='bg-white p-6 rounded-lg shadow-sm border max-w-lg mx-auto'>
-			<div className='flex gap-2'>
-				<input
-					type='text'
-					value={searchQuery}
-					onChange={handleInputChange}
-					onKeyUp={handleKeyUp}
-					placeholder={t("search.placeholder")}
-					className='flex-1 px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500'
-				/>
+		<div className='flex gap-2'>
+			<input
+				type='text'
+				value={searchQuery}
+				onChange={handleInputChange}
+				onKeyUp={handleKeyUp}
+				placeholder={t("search.placeholder")}
+				className='px-3 py-1 border rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500'
+			/>
+			<button
+				onClick={handleSearch}
+				className='bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600'
+			>
+				{t("search.button")}
+			</button>
+			{searchQuery && (
 				<button
-					onClick={handleSearch}
-					className='bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600'
+					onClick={resetSearch}
+					className='px-2 py-1 bg-gray-500 text-white rounded text-sm hover:bg-gray-600'
 				>
-					{t("search.button")}
+					{t("search.reset")}
 				</button>
-				{searchQuery && (
-					<button
-						onClick={resetSearch}
-						className='px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600'
-					>
-						Сбросить
-					</button>
-				)}
-			</div>
+			)}
 		</div>
 	);
 }
