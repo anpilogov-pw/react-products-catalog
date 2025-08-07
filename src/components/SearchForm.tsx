@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { RouterNames } from "@/constants";
 
-function SearchForm() {
+interface SearchFormProps {
+	hideResetButton?: boolean;
+}
+
+function SearchForm({ hideResetButton = false }: SearchFormProps) {
 	const [searchQuery, setSearchQuery] = useState<string>('');
 	const navigate = useNavigate();
 	const { t } = useTranslation();
@@ -45,7 +49,7 @@ function SearchForm() {
 			>
 				{t("search.button")}
 			</button>
-			{searchQuery && (
+			{searchQuery && !hideResetButton && (
 				<button
 					onClick={resetSearch}
 					className='px-2 py-1 bg-gray-500 text-white rounded text-sm hover:bg-gray-600'

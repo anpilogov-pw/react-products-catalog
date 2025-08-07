@@ -100,7 +100,7 @@ function MainLayout() {
 									</Link>
 								</nav>
 								<div className='flex flex-col space-y-3'>
-									<SearchForm />
+									<SearchForm hideResetButton />
 									<button
 										onClick={toggleLanguage}
 										className='self-start px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600'
