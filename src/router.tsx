@@ -7,32 +7,38 @@ import {
 	ProductPage,
 	ProductsPage,
 } from "@/pages";
+import { CONFIG } from "./constants";
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+	[
+		{
+			path: "/",
+			element: <MainLayout />,
+			children: [
+				{
+					index: true,
+					element: <MainPage />,
+				},
+				{
+					path: "products",
+					element: <ProductsPage />,
+				},
+				{
+					path: "products/:id",
+					element: <ProductPage />,
+				},
+				{
+					path: "favorites",
+					element: <FavoritesPage />,
+				},
+			],
+		},
+		{
+			path: "*",
+			element: <NotFoundPage />,
+		},
+	],
 	{
-		path: "/",
-		element: <MainLayout />,
-		children: [
-			{
-				index: true,
-				element: <MainPage />,
-			},
-			{
-				path: "products",
-				element: <ProductsPage />,
-			},
-			{
-				path: "products/:id",
-				element: <ProductPage />,
-			},
-			{
-				path: "favorites",
-				element: <FavoritesPage />,
-			},
-		],
-	},
-	{
-		path: "*",
-		element: <NotFoundPage />,
-	},
-]);
+		basename: `/${CONFIG.nameRepo}`,
+	}
+);
