@@ -3,12 +3,14 @@ import { LazyImage } from "./LazyImage";
 import { Link } from "react-router-dom";
 import { RouterNames } from "@/constants";
 import { useFavorites } from "@/hooks";
+import { useTranslation } from "react-i18next";
 
 type Props = {
 	product: TProduct;
 };
 
 export function ProductCard({ product }: Props) {
+	const { t } = useTranslation();
 	const { isFavorite, addFavorite } = useFavorites();
 
 	return (
@@ -41,7 +43,7 @@ export function ProductCard({ product }: Props) {
 						: "bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100"
 				}`}
 			>
-				{isFavorite(product.id) ? "❤️ В избранном" : "🤍 В избранное"}
+				{isFavorite(product.id) ? t("favorites.inFavorites") : t("favorites.addToFavorites")}
 			</button>
 		</div>
 	);

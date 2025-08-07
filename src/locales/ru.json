@@ -21,6 +21,10 @@
     "products": "Товары",
     "favorites": "Избранные"
   },
+  "favorites": {
+    "addToFavorites": "🤍 В избранное",
+    "inFavorites": "❤️ В избранном"
+  },
   "common": {
     "loading": "Загрузка...",
     "error": "Ошибка",
