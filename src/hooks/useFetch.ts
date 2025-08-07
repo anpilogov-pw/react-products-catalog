@@ -12,14 +12,18 @@ export function useFetch<T = unknown>(
 	options: UseFetchOptions = {}
 ) {
 	const { method = "GET", headers, immediate = true } = options;
+
 	const abortControllerRef = useRef<AbortController | null>(null);
-	const hasExecutedRef = useRef(false);
 
 	const [data, setData] = useState<T | null>(null);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [error, setError] = useState<string | null>(null);
 
 	const execute = useCallback(async () => {
+		if (abortControllerRef.current) {
+			abortControllerRef.current.abort();
+		}
+
 		const controller = new AbortController();
 		abortControllerRef.current = controller;
 
@@ -44,9 +48,7 @@ export function useFetch<T = unknown>(
 			const result = await response.json();
 			setData(result);
 		} catch (error: unknown) {
-			if (error instanceof Error && error.name === 'AbortError') {
-				return;
-			}
+			if (error instanceof Error && error.name === "AbortError") return;
 			setError(error instanceof Error ? error.message : "Unknown error");
 		} finally {
 			setIsLoading(false);
@@ -60,11 +62,12 @@ export function useFetch<T = unknown>(
 	}, []);
 
 	useEffect(() => {
-		if (immediate && !hasExecutedRef.current) {
-			hasExecutedRef.current = true;
-			execute();
-		}
+		if (immediate) execute();
 	}, [execute, immediate]);
+
+	useEffect(() => {
+		return () => abort();
+	}, []);
 
 	return { data, isLoading, error, execute, abort };
 }

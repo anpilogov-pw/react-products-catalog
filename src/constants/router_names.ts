@@ -1,6 +1,7 @@
 export const RouterNames = {
 	HOME: "/",
 	FAVORITES: "/favorites",
-	USERS_SEARCH: (search: string) => `/users/?search=${search}`,
-	USER: (id: string) => `/user/${id}`,
+	PRODUCTS: `/products`,
+	PRODUCTS_SEARCH: (search: string) => `/products/?search=${search}`,
+	PRODUCT: (id: string) => `/products/${id}`,
 };
