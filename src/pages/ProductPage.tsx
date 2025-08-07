@@ -40,7 +40,7 @@ function ProductPage() {
 								: "bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100"
 						}`}
 					>
-						{isFavorite(product.id) ? "❤️ В избранном" : "🤍 В избранное"}
+						{isFavorite(product.id) ? t("favorites.inFavorites") : t("favorites.addToFavorites")}
 					</button>
 				</div>
 			</div>

@@ -25,6 +25,10 @@
     "products": "Products",
     "favorites": "Favorites"
   },
+  "favorites": {
+    "addToFavorites": "🤍 Add to Favorites",
+    "inFavorites": "❤️ In Favorites"
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error",
